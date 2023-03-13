@@ -58,5 +58,8 @@ sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/p
 
 # apply config
 echo "applying dotfiles configs"
+dotfiles fetch --all
+dotfiles reset --hard origin/master
+
 
 echo "DONE"
