@@ -12,8 +12,8 @@ bw sync
 mkdir ~/.ssh
 chmod 0700 ~/.ssh
 
-bw notes get pub > ~/.ssh/id_rsa.pub
-bw notes get sshkey > ~/.ssh/id_rsa
+bw get notes pub > ~/.ssh/id_rsa.pub
+bw get notes sshkey > ~/.ssh/id_rsa
 chmod 0600 ~/.ssh/id_rsa
 
 ssh-agent
