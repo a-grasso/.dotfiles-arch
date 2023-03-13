@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # bitwarden cli
-pacman -S --noconfirm bitwarden-cli
+sudo pacman -S --noconfirm bitwarden-cli
 
 ## ssh key prep
 bw login
@@ -25,7 +25,7 @@ ssh-add
 
 # dotfiles setup
 
-pacman -S --noconfirm git
+sudo pacman -S --noconfirm git
 
 mkdir $HOME/.dotfiles
 
@@ -39,7 +39,7 @@ dotfiles remote add origin git@github.com:a-grasso/.dotfiles-arch.git
 
 # zsh & oh-my-zsh
 
-pacman -S --noconfirm zsh
+sudo pacman -S --noconfirm zsh
 
 chsh -s $(which zsh)
 
