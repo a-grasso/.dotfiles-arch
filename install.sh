@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # bitwarden cli
 sudo pacman -S --noconfirm bitwarden-cli
 
