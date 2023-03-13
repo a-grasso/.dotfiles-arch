@@ -37,7 +37,7 @@ echo "dotfiles"
 #dotfiles config --local status.showUntrackedFiles no
 #dotfiles remote add origin git@github.com:a-grasso/.dotfiles-arch.git
 
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/anandpiyer/.dotfiles.git tmpdotfiles
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/a-grasso/.dotfiles-arch.git tmpdotfiles
 rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 
