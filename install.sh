@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 # bitwarden cli & ssh key prep
 echo "ssh prep"
 
@@ -56,7 +54,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # theme
 echo "theme"
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # apply config
 echo "applying dotfiles configs"
