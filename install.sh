@@ -4,8 +4,8 @@ pacman -S --noconfirm bitwarden-cli
 
 ## ssh key prep
 bw login
--> email
--> master password
+# -> email
+# -> master password
 
 bw sync
 
