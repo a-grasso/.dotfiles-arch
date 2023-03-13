@@ -37,10 +37,6 @@ echo "dotfiles"
 #dotfiles config --local status.showUntrackedFiles no
 #dotfiles remote add origin git@github.com:a-grasso/.dotfiles-arch.git
 
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/a-grasso/.dotfiles-arch.git tmpdotfiles
-rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
-rm -r tmpdotfiles
-
 # zsh & oh-my-zsh
 echo "zsh"
 
@@ -56,8 +52,9 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 
 # apply config
 echo "applying dotfiles configs"
-dotfiles fetch --all
-dotfiles reset --hard origin/master
 
+git clone --separate-git-dir=$HOME/.dotfiles https://github.com/a-grasso/.dotfiles-arch.git tmpdotfiles
+rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
+rm -r tmpdotfiles
 
 echo "DONE"
