@@ -58,3 +58,6 @@ rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
 rm -r tmpdotfiles
 
 echo "DONE"
+
+sleep 5
+sudo reboot
