@@ -46,7 +46,7 @@ sudo pacman -S --noconfirm zsh
 
 chsh -s $(which zsh)
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # theme
 echo "theme"
