@@ -5,11 +5,9 @@ echo "ssh prep"
 
 sudo pacman -S --noconfirm bitwarden-cli
 
-bw login
+export BW_SESSION=$(bw login --raw)
 # -> email
 # -> master password
-
-export BW_SESSION=$(bw unlock --raw)
 
 bw sync
 
