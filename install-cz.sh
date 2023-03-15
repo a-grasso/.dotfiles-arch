@@ -20,13 +20,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "-----> theme"
 git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k # $ZSH_CUSTOM would need a change into zsh shell
 
-# apply config
-echo "-----> chezmoi & applying dotfiles"
-
-sudo pacman -S --noconfirm chezmoi
-
-chezmoi init --apply --verbose https://github.com/a-grasso/.dotfiles-arch.git
-
 # bitwarden cli
 echo "-----> bitwarden cli"
 
@@ -37,6 +30,13 @@ export BW_SESSION=$(bw login --raw)
 # -> input master password
 
 bw sync
+
+# apply config
+echo "-----> chezmoi & applying dotfiles"
+
+sudo pacman -S --noconfirm chezmoi
+
+chezmoi init --apply --verbose https://github.com/a-grasso/.dotfiles-arch.git
 
 #mkdir ~/.ssh
 #sudo chmod 0700 ~/.ssh
