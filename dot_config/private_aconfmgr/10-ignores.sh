@@ -1,0 +1,6 @@
+IgnorePath '/var/lib/pacman/local/*'
+IgnorePath '/var/lib/pacman/sync/*.db'
+IgnorePath '/var/lib/pacman/sync/*.db.sig'
+IgnorePath '/var/*'
+IgnorePath '/boot/*'
+IgnorePath '/usr/lib/*'
