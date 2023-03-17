@@ -1,5 +1,3 @@
-
-
 sudo pacman -S --needed --noconfirm base-devel git
 
 if pacman -Qs yay > /dev/null ; then
