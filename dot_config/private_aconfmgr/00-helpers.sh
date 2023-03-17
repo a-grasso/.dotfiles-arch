@@ -1,6 +1,6 @@
 function IgnorePathsExcept() {
     # Ignore all path in given directory (first parameter) 
-    # that do not math the given white list (second parameter)
+    # that do not match the given white list (second parameter)
 
     local search_dir=$1
     shift
