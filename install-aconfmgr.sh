@@ -8,4 +8,6 @@ fi
 
 yay -S --noconfirm aconfmgr
 
+chezmoi apply
+
 aconfmgr apply
