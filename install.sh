@@ -37,6 +37,9 @@ sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-
 
 sudo systemctl enable lightdm
 ############################################################
+# packages
+sudo pacman -S --noconfirm bspwm sxhkd nitrogen feh polybar dmenu alacritty thunar picom rofi
+############################################################
 # apply config
 echo "-----> chezmoi & applying dotfiles"
 
@@ -69,7 +72,7 @@ fi
 yay -S --noconfirm aconfmgr
 
 aconfmgr apply
-############################################################
+
 echo "DONE"
 
 echo "******MANUAL TODOs******"
