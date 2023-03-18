@@ -68,7 +68,7 @@ ssh-add
 echo "-----> aconfmgr"
 if pacman -Qs yay > /dev/null ; then
   echo "!!!yay ALREADY installed!!!"
-  ; else
+  else
   echo "!!!yay NOT installed!!!"
   git clone https://aur.archlinux.org/yay.git
   cd yay
