@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Sy
-sudo pacman -Sy archlinux-keyring
+sudo pacman -Sy --noconfirm archlinux-keyring
 sudo pacman -Syyu
 
 ############################################################
