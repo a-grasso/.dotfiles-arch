@@ -5,5 +5,5 @@
 
 export BW_SESSION=$(bw login --raw)
 echo $0
-env | grep session
+env
 bw sync
