@@ -33,7 +33,7 @@ export BW_SESSION=$(bw login --raw)
 bw sync
 ############################################################
 # lightdm
-sudo pacman -S --noconfirm lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-slick-greeter
+sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-slick-greeter
 
 sudo systemctl enable lightdm.service -f
 ############################################################
