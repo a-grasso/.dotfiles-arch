@@ -52,7 +52,7 @@ dunst
 # "
 
 AURPACKAGES+="
-oh-my-zsh-git
+
 "
 
 su root -c "echo \"Installing packages...\" && \
