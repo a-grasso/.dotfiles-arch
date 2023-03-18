@@ -89,6 +89,8 @@ sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noco
 
 chsh -s $(which zsh) "$(whoami)"
 
+sudo -u "$(whoami)" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 # ZSH powerlevel10k theme
 ZSH_PL10K_THEME_DIR="/home/$(whoami)/.oh-my-zsh/custom/themes/powerlevel10k"
 if [ -d "$ZSH_PL10K_THEME_DIR" ]; then
