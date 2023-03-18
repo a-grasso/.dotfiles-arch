@@ -5,8 +5,6 @@
 bw login --check > /dev/null 2>&1
 logged_in=$?
 
-export BW_SESSION=$(bw unlock --raw "{{ .bw_email }}")
-
 if test $logged_in -eq 0
 then
   echo "locked"
