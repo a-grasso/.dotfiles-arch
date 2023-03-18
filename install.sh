@@ -6,7 +6,7 @@ sudo pacman -Sy
 # git
 echo "-----> git"
 
-sudo pacman -S --noconfirm base-devel git
+sudo pacman -S --noconfirm git
 ############################################################
 # zsh & oh-my-zsh
 echo "-----> zsh & oh-my-zsh"
