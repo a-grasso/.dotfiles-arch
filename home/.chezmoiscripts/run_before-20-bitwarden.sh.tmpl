@@ -6,10 +6,11 @@ bw login --check > /dev/null 2>&1
 logged_in=$?
 
 if test $logged_in -eq 0
-  export BW_SESSION=$(bw unlock --raw "{{ .bw_email }}")
 then
-  export BW_SESSION=$(bw login --raw "{{ .bw_email }}")
+  export BW_SESSION=$(bw unlock --raw "{{ .bw_email }}")
 else
+export BW_SESSION=$(bw login --raw "{{ .bw_email }}")
+fi
 
 env
 bw sync
