@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Sy
+sudo pacman -Sy archlinux-keyring
 
 ############################################################
 # git
