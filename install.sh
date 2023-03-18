@@ -72,5 +72,5 @@ aconfmgr apply
 ############################################################
 echo "DONE"
 
-sleep 5
-sudo reboot
+echo "******MANUAL TODOs******"
+echo "lightdm greeter switch to slick"
