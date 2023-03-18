@@ -35,7 +35,7 @@ bw sync
 # lightdm
 sudo pacman -S --noconfirm xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-slick-greeter
 
-sudo systemctl enable lightdm.service -f
+sudo systemctl enable lightdm
 ############################################################
 # apply config
 echo "-----> chezmoi & applying dotfiles"
