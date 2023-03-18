@@ -87,7 +87,7 @@ fi
 echo "Installing AUR packages..."
 sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
 
-chsh -s $(which zsh) "$(whoami)"
+sudo -u "$(whoami)" chsh -s $(which zsh) "$(whoami)"
 
 sudo -u "$(whoami)" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
