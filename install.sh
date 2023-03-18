@@ -65,10 +65,14 @@ eval $(ssh-agent)
 ssh-add
 ############################################################
 # aconfmgr
+echo "-----> aconfmgr"
 if pacman -Qs yay > /dev/null ; then
+  echo "!!!yay ALREADY installed!!!"
+  ; else
+  echo "!!!yay NOT installed!!!"
   git clone https://aur.archlinux.org/yay.git
   cd yay
-  makepkg -si
+  makepkg -si 
 fi
 
 yay -S --noconfirm aconfmgr
@@ -78,4 +82,4 @@ aconfmgr apply
 echo "DONE"
 
 echo "******MANUAL TODOs******"
-echo "lightdm greeter switch to slick"
+echo ">>>>> lightdm greeter switch to slick"
