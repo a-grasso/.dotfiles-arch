@@ -47,7 +47,7 @@ echo "-----> chezmoi & applying dotfiles"
 
 sudo pacman -S --noconfirm chezmoi
 
-chezmoi init --apply --verbose git@github.com:a-grasso/.dotfiles-arch.git
+chezmoi init --apply --verbose https://github.com/a-grasso/.dotfiles-arch.git
 
 #mkdir ~/.ssh
 #sudo chmod 0700 ~/.ssh
