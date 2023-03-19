@@ -2,7 +2,7 @@
 
 clear
 
-echo "---All DONE---"
+echo "---FINAL---"
 
 yesno() {
 	read -p "${*} [y/n] " -n 2 -r
@@ -12,7 +12,7 @@ yesno() {
 	fi
 }
 
-yesno "Do you want to reboot now?"
+yesno "All Done - Do you want to reboot now?"
 
 echo "rebooting..."
 
