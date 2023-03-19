@@ -101,10 +101,10 @@ if [[ ! -d "${tmpDir}" ]]; then
 fi
 
 # bitwarden-cli is needed to pull down secrets with chezmoi
-checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S bitwarden-cli'
+checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
 
 # chezmoi is needed for dotfiles
-checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S chezmoi'
+checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
 
 # needs to be unlocked before calling chezmoi
 log "Logging into bitwarden..."
