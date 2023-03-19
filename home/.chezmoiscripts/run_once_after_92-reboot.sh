@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 echo "---All DONE---"
 
 yesno() {
