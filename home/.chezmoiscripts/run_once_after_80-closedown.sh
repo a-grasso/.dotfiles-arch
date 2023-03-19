@@ -2,7 +2,7 @@
 
 clear
 
-echo "---CLOSEDOWN---
+echo "---CLOSEDOWN---"
 
 su root -c "echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
