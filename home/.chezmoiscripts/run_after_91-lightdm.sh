@@ -13,6 +13,4 @@ function sudo_finish {
 }
 trap sudo_finish EXIT
 
-sudo -u "$(whoami)" -n bash -c "command -v lightdm"
-echo "---"
 sudo -u "$(whoami)" -n bash -c "sudo systemctl enable lightdm"
