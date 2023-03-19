@@ -13,6 +13,10 @@ function sudo_finish {
 }
 trap sudo_finish EXIT
 
+############## zsh
+
+chsh -s $(which zsh) "$(whoami)"
+
 ############## ssh
 ssh-agent
 
@@ -42,4 +46,4 @@ echo "rebooting..."
 
 sleep 3
 
-sudo reboot
+reboot
