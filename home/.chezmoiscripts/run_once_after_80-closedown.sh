@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 su root -c "echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
 echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
