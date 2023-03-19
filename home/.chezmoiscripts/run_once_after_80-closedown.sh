@@ -30,4 +30,5 @@ eval $(ssh-agent)
 ssh-add
 
 ############## lightdm
+
 sudo -u "$(whoami)" -n bash -c "sudo systemctl enable lightdm"
