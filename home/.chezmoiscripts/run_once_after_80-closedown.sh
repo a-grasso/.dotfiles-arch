@@ -13,18 +13,17 @@ function sudo_finish {
 }
 trap sudo_finish EXIT
 
-
-# ssh
+############## ssh
 ssh-agent
 
 eval $(ssh-agent)
 
 ssh-add
 
-# lightdm
+############## lightdm
 sudo -u "$(whoami)" -n bash -c "sudo systemctl enable lightdm"
 
-# after all
+############## after all
 clear
 
 echo "---All DONE---"
