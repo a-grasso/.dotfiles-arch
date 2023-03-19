@@ -13,4 +13,4 @@ function sudo_finish {
 }
 trap sudo_finish EXIT
 
-sudo -u "$(whoami)" -n bash -c "systemctl enable ligthdm"
+sudo -u "$(whoami)" -n bash -c "sudo systemctl enable ligthdm"
