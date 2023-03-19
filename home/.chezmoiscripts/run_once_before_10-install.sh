@@ -2,7 +2,7 @@
 
 echo "Installing Packages"
 
-sudo pacman -Sy
+#sudo pacman -Sy
 #sudo pacman -Sy --noconfirm archlinux-keyring
 #sudo pacman -Syyu --noconfirm
 
