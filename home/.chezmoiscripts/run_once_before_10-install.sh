@@ -51,10 +51,6 @@ dunst
 # xautolock
 # "
 
-AURPACKAGES+="
-
-"
-
 su root -c "echo \"Installing packages...\" && \
 pacman -Syu --noconfirm && \
 pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
