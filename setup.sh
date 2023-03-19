@@ -91,6 +91,7 @@ bwUnlock() {
 	elif [[ -z "${BW_SESSION}" ]]; then
 		die "Unknown bitwarden status"
 	fi
+	bw sync
 }
 
 # need a scratch space for downloading files
