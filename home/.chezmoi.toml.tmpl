@@ -1,8 +1,8 @@
-{{ $bw-installed := promptString "Is Bitwarden installed? [yes/no]" -}}
+{{ $installed := promptString "Is Bitwarden installed? [yes/no]" -}}
 
 [diff]
     exclude = ["scripts", "externals"]
     
 [data]
-  bw-locked = $(command -v bw)
-  bw-installed: {{ $email | quote }}
+  locked = $(command -v bw)
+  installed: {{ $email | quote }}
