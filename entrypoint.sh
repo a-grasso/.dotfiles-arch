@@ -7,8 +7,8 @@ set -o pipefail # don't hide errors within pipes
 readonly dotfiles='https://github.com/a-grasso/.dotfiles-arch'
 
 # sudo is needed for dotfiles
-local condition='command -v sudo'
-local executable='pacman -Sy --noconfirm sudo'
+condition='command -v sudo'
+executable='pacman -Sy --noconfirm sudo'
 if ! ${condition} -p &>/dev/null; then
 		${executable}
 fi
