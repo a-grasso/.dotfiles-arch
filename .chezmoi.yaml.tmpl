@@ -1,4 +1,6 @@
+{{ $email := promptString "email" -}}
 {{ $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI" }}
 
 data:
-  hasGui: $hasGUI
+    email: {{ $email | quote }}
+    hasGui: {{ $hasGUI }}
