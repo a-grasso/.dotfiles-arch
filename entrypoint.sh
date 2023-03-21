@@ -4,15 +4,23 @@ set -o errexit  # abort on nonzero exitstatus
 set -o nounset  # abort on unbound variable
 set -o pipefail # don't hide errors within pipes
 
-source ./common.sh
-
-pacman -Sy
+readonly dotfiles='https://github.com/a-grasso/.dotfiles-arch'
 
 # sudo is needed for dotfiles
-checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
+condition = 'command -v sudo'
+executable = 'pacman -Sy --noconfirm sudo'
+if ! ${condition} -p &>/dev/null; then
+		${executable}
+fi
+
+sudo pacman -Sy
 
 # git is needed for dotfiles
-checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
+condition = 'command -v git'
+executable = 'sudo pacman -S --noconfirm git'
+if ! ${condition} -p &>/dev/null; then
+		${executable}
+fi
 
 # clone this very repo
 git clone "${dotfiles}" repo
