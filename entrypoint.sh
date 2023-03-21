@@ -7,19 +7,15 @@ set -o pipefail # don't hide errors within pipes
 readonly dotfiles='https://github.com/a-grasso/.dotfiles-arch'
 
 # sudo is needed for dotfiles
-condition='command -v sudo'
-executable='pacman -Sy --noconfirm sudo > /dev/null'
-if ! ${condition} -p &>/dev/null; then
-		${executable}
+if ! command -v sudo -p &>/dev/null; then
+		pacman -Sy --noconfirm sudo > /dev/null
 fi
 
 sudo pacman -Sy > /dev/null
 
 # git is needed for dotfiles
-condition='command -v git'
-executable='sudo pacman -S --noconfirm git > /dev/null'
-if ! ${condition} -p &>/dev/null; then
-		${executable}
+if ! command -v git -p &>/dev/null; then
+		sudo pacman -S --noconfirm git > /dev/null
 fi
 
 # clone this very repo
