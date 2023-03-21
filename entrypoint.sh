@@ -23,7 +23,7 @@ if ! ${condition} -p &>/dev/null; then
 fi
 
 # clone this very repo
-git clone "${dotfiles}" repo
+git clone "${dotfiles}" repo > /dev/null
 cd repo
 sudo chmod +x setup.sh
 
