@@ -72,7 +72,7 @@ trap sudo_finish EXIT
 if ! [ -x "/usr/bin/yay" ]; then
 	echo "Installing yay..."
 	pushd /tmp/
-		mkdir -p "/tmp/yay-install/"
+		sudo -u "$(whoami)" mkdir -p "/tmp/yay-install/"
 		pushd yay-install
 			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
 			sudo -u nobody -n makepkg -sicf --needed --noconfirm
