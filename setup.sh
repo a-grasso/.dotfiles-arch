@@ -69,7 +69,7 @@ tryInstall() {
 	local executable=${2}
 
 	log "It appears that ${name} is not installed and is required to continue."
-	yesno "Would you like to install it?"
+	#yesno "Would you like to install it?"
 
 	log "Installing ${name}..."
 	${executable}
@@ -111,6 +111,12 @@ tmpDir="$(mktemp -d -t dev-setup-XXXXXXXXXX)"
 if [[ ! -d "${tmpDir}" ]]; then
 	die "Failed creating a temporary directory; cannot continue"
 fi
+
+# sudo is needed for dotfiles
+checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
+
+# git is needed for dotfiles
+checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
 
 # chezmoi is needed for dotfiles
 checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
