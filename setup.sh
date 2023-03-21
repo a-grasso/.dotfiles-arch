@@ -115,8 +115,8 @@ fi
 # chezmoi is needed for dotfiles
 checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
 
-
-if [[ $(yesnoreturn "Do you want chezmoi to pull from your bitwarden?") ]]; then
+installBitwarden="$(yesnoreturn "Do you want chezmoi to pull from your bitwarden?")"
+if [[ "${installBitwarden}" ]]; then
 	# user wants to use bitwarden
 	# bitwarden-cli is needed to pull down secrets with chezmoi
 	checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
