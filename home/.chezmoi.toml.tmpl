@@ -1,3 +1,6 @@
   
 [diff]
     exclude = ["scripts", "externals"]
+    
+[data]
+  bw.locked = $(bw status | grep "locked" &>/dev/null)
