@@ -1,6 +1,6 @@
 {{ $email := promptString "email" -}}
-{{ $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI" -}}
 
 data:
-    email: {{ $email | quote }}
-    hasGui: {{ $hasGUI }}
+    config:
+        email: {{ $email | quote }}
+        copy_ssh: {{ promptBoolOnce . "config.decrypt_secrets" "Decrypt secret files" false }}
