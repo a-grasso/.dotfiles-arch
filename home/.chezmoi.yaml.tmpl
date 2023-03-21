@@ -1,6 +1,3 @@
-{{ $email := promptString "email" -}}
-
 data:
     config:
-        email: {{ $email | quote }}
-        copy_ssh: {{ promptBoolOnce . "config.copy_ssh" "Decrypt secret files" false }}
+        bw_ssh: {{ promptBoolOnce "Import SSH Key from Bitwarden?" false }}
