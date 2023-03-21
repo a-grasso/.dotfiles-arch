@@ -49,6 +49,18 @@ yesno() {
 	fi
 }
 
+# Usage: yesnoreturn MESSAGE
+#
+# Asks the user to confirm via y/n syntax. Returns answer and does not exit.
+yesnoreturn() {
+	read -p "${*} [y/n] " -n 2 -r
+	printf "\n"
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		return 0
+	fi
+	return 1
+}
+
 # Usage: tryInstall NAME EXECUTABLE
 #
 # Asks the user permission to install NAME and then runs EXECUTABLE
@@ -100,8 +112,12 @@ if [[ ! -d "${tmpDir}" ]]; then
 	die "Failed creating a temporary directory; cannot continue"
 fi
 
-# bitwarden-cli is needed to pull down secrets with chezmoi
-checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
+useBitwarden = $(yesnoreturn "Do you want chezmoi to pull from your bitwarden?")
+if [[ useBitwarden ]]; then
+	# user wants to use bitwarden
+	# bitwarden-cli is needed to pull down secrets with chezmoi
+	checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
+fi
 
 # chezmoi is needed for dotfiles
 checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
