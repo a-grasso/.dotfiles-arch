@@ -78,7 +78,7 @@ if ! [ -x "/usr/bin/yay" ]; then
 			sudo -u nobody -n makepkg -sicf --needed --noconfirm
 		popd
 
-		sudo rm -rf yay-install
+		sudo -u "$(whoami)" -n bash -c "rm -rf yay-install"
 	popd
 fi
 
