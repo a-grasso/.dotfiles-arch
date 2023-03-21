@@ -3,4 +3,4 @@
 data:
     config:
         email: {{ $email | quote }}
-        copy_ssh: {{ promptBoolOnce . "config.decrypt_secrets" "Decrypt secret files" false }}
+        copy_ssh: {{ promptBoolOnce . "config.copy_ssh" "Decrypt secret files" false }}
