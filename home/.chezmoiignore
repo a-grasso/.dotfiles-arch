@@ -1,3 +1,0 @@
-{{ if .installed }}
-private_dot_ssh/
-{{ end }}
