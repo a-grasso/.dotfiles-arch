@@ -1,6 +1,1 @@
-{{- if .config.use_bw -}}
-{{ $status := output "bw" "status"}}
-{{- if contains "unlocked" $status -}}
 {{ (bitwarden "item" "pubkey").notes }}
-{{- end -}}
-{{- end -}}
