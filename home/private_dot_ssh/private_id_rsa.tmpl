@@ -1,3 +1,12 @@
+{{ $status := output "bw" "status"}}
+
+{{- if contains "unlocked" $status -}}
 {{- if .config.use_bw -}}
 {{ (bitwarden "item" "sshkey").notes }}
 {{- end -}}
+{{- else -}}
+not logged in
+{{- end -}}
+
+
+
