@@ -112,8 +112,7 @@ if [[ ! -d "${tmpDir}" ]]; then
 	die "Failed creating a temporary directory; cannot continue"
 fi
 
-useBitwarden = $(yesnoreturn "Do you want chezmoi to pull from your bitwarden?")
-if [[ $useBitwarden ]]; then
+if [[ $(yesnoreturn "Do you want chezmoi to pull from your bitwarden?") ]]; then
 	# user wants to use bitwarden
 	# bitwarden-cli is needed to pull down secrets with chezmoi
 	checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
