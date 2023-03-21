@@ -19,7 +19,7 @@ if ! command -v git -p &>/dev/null; then
 fi
 
 # clone this very repo
-git clone "${dotfiles}" repo > /dev/null
+git clone --quiet "${dotfiles}" repo > /dev/null
 cd repo
 
 clear
