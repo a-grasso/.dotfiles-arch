@@ -1,3 +1,7 @@
-{{- if (env "SSHKEY") }}
-private_dot_ssh/
-{{- end }}
+{{- if not (.config.use_bw) -}}
+{{ $status := output "bw" "status"}}
+{{- if not (contains "unlocked" $status) -}}
+private_dot_ssh/private_id_rsa.pub.tmpl
+private_dot_ssh/private_id_rsa.tmpl
+{{- end -}}
+{{- end -}}
