@@ -8,7 +8,7 @@ readonly dotfiles='https://github.com/a-grasso/.dotfiles-arch'
 
 # sudo is needed for dotfiles
 condition='command -v sudo'
-executable='pacman -Sy --noconfirm sudo > /dev/null'
+executable='pacman -Sy --noconfirm sudo > /dev/null 2>&1'
 if ! ${condition} -p &>/dev/null; then
 		${executable}
 fi
@@ -17,7 +17,7 @@ sudo pacman -Sy > /dev/null
 
 # git is needed for dotfiles
 condition='command -v git'
-executable='sudo pacman -S --noconfirm git > /dev/null'
+executable='sudo pacman -S --noconfirm git > /dev/null 2>&1'
 if ! ${condition} -p &>/dev/null; then
 		${executable}
 fi
