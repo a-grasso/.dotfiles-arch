@@ -1,3 +1,6 @@
-{{- if (env "BW") -}}
+{{ $hasSSH := promptBoolOnce . "hasSSH" "Does this machine need a SSH key" }}
+
+
+{{- if $hasSSH -}}
 {{ (bitwarden "item" "sshkey").notes }}
 {{- end -}}
