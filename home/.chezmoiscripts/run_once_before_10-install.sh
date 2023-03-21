@@ -24,20 +24,24 @@ lightdm-slick-greeter
 
 bspwm
 sxhkd
-nitrogen
-feh
-polybar
-dmenu
-thunar
-picom
-rofi
-
-chezmoi
-
-papirus-icon-theme
-
-dunst
 "
+#nitrogen
+#feh
+#polybar
+#dmenu
+#thunar
+#picom
+#rofi
+#
+#chezmoi
+#
+#papirus-icon-theme
+#
+#dunst
+
+
+
+
 
 # PACKAGES+="
 # networkmanager
