@@ -23,11 +23,10 @@ checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
 # chezmoi is needed for dotfiles
 checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
 
-if yesnoreturn "Do you want chezmoi to pull from your bitwarden?"; then
-	# user wants to use bitwarden
-	# bitwarden-cli is needed to pull down secrets with chezmoi
-	checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
-	
+# bitwarden-cli is needed to pull down secrets with chezmoi
+checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
+
+if yesnoreturn "Do you want to unlock bitwarden for chezmoi NOW to avoid multiple unlocks later?"; then
 	# needs to be unlocked before calling chezmoi
 	log "Logging into bitwarden..."
 	bwUnlock
