@@ -21,7 +21,9 @@ fi
 # clone this very repo
 git clone "${dotfiles}" repo > /dev/null
 cd repo
-sudo chmod +x setup.sh
+
+clear
 
 # setup everything
+sudo chmod +x setup.sh
 ./setup.sh
