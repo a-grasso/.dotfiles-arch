@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rootmoi_path='# {{ joinPath .chezmoi.homeDir ".local/bin/rootmoi" }}'
+rootmoi_path='{{ joinPath .chezmoi.homeDir ".local/bin/rootmoi" }}'
 original_args=(
   # {{ rest .chezmoi.args | quoteList | join " " }}
 )
