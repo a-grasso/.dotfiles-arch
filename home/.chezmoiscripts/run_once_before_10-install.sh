@@ -1,7 +1,5 @@
 #!/bin/bash
 
-clear
-
 echo "---INSTALL---"
 
 #sudo pacman -Sy
