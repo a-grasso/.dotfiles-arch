@@ -4,8 +4,10 @@ clear
 
 echo "---PRECHECKS---"
 
-if bw status | grep "locked" &>/dev/null; then
-  echo "Bitwarden Vault is locked, skipping SSH keys!"
+if bw status | grep "unlocked" &>/dev/null; then
+  echo "Bitwarden Vault is UNLOCKED!"
+elif bw status | grep "locked" &>/dev/null; then
+  echo "Bitwarden Vault is LOCKED, skipping secrets!"
 elif bw status | grep "unauthenticated" &>/dev/null; then
-  echo "Bitwarden Vault is not authenticated, skipping SSH keys!"
+  echo "Bitwarden Vault is NOT AUTHENTICATED, skipping secrets!"
 fi
