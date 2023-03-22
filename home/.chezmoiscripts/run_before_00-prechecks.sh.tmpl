@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if bw status | grep "locked" &>/dev/null; then
+  echo "Bitwarden Vault is locked, skipping SSH keys!"
+elif bw status | grep "unauthenticated" &>/dev/null; then
+  echo "Bitwarden Vault is not authenticated, skipping SSH keys!"
+fi
