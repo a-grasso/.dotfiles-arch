@@ -52,6 +52,7 @@ for i in "${!original_args[@]}"; do
   args+=("${original_args[i]}")
   done
 
+echo "running executable"
 #log_task "Applying root dotfiles"
 #log_c "rootmoi" "${args[@]}"
 exec "${rootmoi_path}" "${args[@]}"
