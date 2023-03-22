@@ -28,7 +28,7 @@ for i in "${!original_args[@]}"; do
   if [[ "${original_args[i]}" == "-S="* ||
     "${original_args[i]}" == "--source="* ]]; then
     continue
-  fi
+  fis
 
   # We will always apply, so we don't need any --apply flags
   if [[ "${original_args[i]}" == "-a" ||
@@ -52,6 +52,6 @@ for i in "${!original_args[@]}"; do
   args+=("${original_args[i]}")
 done
 
-log_task "Applying root dotfiles"
-log_c "rootmoi" "${args[@]}"
+#log_task "Applying root dotfiles"
+#log_c "rootmoi" "${args[@]}"
 exec "${rootmoi_path}" "${args[@]}"
