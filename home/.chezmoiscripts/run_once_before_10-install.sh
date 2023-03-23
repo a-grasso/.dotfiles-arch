@@ -17,6 +17,7 @@ bitwarden-cli
 xorg
 
 sddm
+sddm-sugar-candy-git
 
 bspwm
 sxhkd
