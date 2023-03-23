@@ -1,7 +1,5 @@
 #!/bin/bash
 
-clear
-
 echo "---CLOSEDOWN---"
 
 su root -c "echo \"Create temporary permissions for sudo...\" && \
