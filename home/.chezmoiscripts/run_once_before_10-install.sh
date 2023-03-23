@@ -81,15 +81,15 @@ if ! [ -x "/usr/bin/yay" ]; then
 		sudo mkdir -p "/tmp/yay-install/"
 		pushd yay-install
 			curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD
-			makepkg -sicf --needed --noconfirm
+			sudo -u nobody -n makepkg -sicf --needed --noconfirm
 		popd
 
 		sudo rm -rf yay-install
 	popd
 fi
 
-#echo "Installing AUR packages..."
-#sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
+echo "Installing AUR packages..."
+yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
