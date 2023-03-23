@@ -7,7 +7,9 @@ echo "---INSTALL---"
 #sudo pacman -Syyu --noconfirm
 
 PACKAGES=""
-AURPACKAGES=""
+AURPACKAGES="
+sddm-sugar-candy-git
+"
 
 PACKAGES+="git
 
@@ -17,7 +19,6 @@ bitwarden-cli
 xorg
 
 sddm
-sddm-sugar-candy-git
 
 bspwm
 sxhkd
@@ -74,18 +75,18 @@ sudo pacman -Syu --noconfirm
 
 sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
 
-#if ! [ -x "/usr/bin/yay" ]; then
-#	echo "Installing yay..."
-#	pushd /tmp/
-#		sudo -u "$(whoami)" mkdir -p "/tmp/yay-install/"
-#		pushd yay-install
-#			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
-#			sudo -u nobody -n makepkg -sicf --needed --noconfirm
-#		popd
-#
-#		sudo -u "$(whoami)" -n bash -c "rm -rf yay-install"
-#	popd
-#fi
+if ! [ -x "/usr/bin/yay" ]; then
+	echo "Installing yay..."
+	pushd /tmp/
+		sudo -u "$(whoami)" mkdir -p "/tmp/yay-install/"
+		pushd yay-install
+			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
+			sudo -u nobody -n makepkg -sicf --needed --noconfirm
+		popd
+
+		sudo -u "$(whoami)" -n bash -c "rm -rf yay-install"
+	popd
+fi
 
 #echo "Installing AUR packages..."
 #sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
