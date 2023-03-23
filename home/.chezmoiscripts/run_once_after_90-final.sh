@@ -16,4 +16,4 @@ echo "rebooting..."
 
 sleep 3
 
-reboot
+sudo reboot
