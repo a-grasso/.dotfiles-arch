@@ -78,7 +78,6 @@ sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
 pushd /opt/
 git clone https://aur.archlinux.org/yay.git
 sudo chown -R "$(whoami)":users ./yay
-
 pushd yay
 makepkg -si --needed --noconfirm
 popd
