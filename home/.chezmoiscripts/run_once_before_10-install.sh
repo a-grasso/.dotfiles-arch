@@ -75,18 +75,27 @@ sudo pacman -Syu --noconfirm
 
 sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
 
-if ! [ -x "/usr/bin/yay" ]; then
-	echo "Installing yay..."
-	pushd /tmp/
-		sudo mkdir -p "/tmp/yay-install/"
-		pushd yay-install
-			curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD
-			sudo -u nobody -n makepkg -sicf --needed --noconfirm
-		popd
+pushd /opt/
+git clone https://aur.archlinux.org/yay.git
+sudo chown -R "$(whoami)":users ./yay
 
-		sudo rm -rf yay-install
-	popd
-fi
+pushd yay
+makepkg -si --needed --noconfirm
+popd
+popd
+
+#if ! [ -x "/usr/bin/yay" ]; then
+#	echo "Installing yay..."
+#	pushd /tmp/
+#		sudo mkdir -p "/tmp/yay-install/"
+#		pushd yay-install
+#			curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD
+#			sudo -u nobody -n makepkg -sicf --needed --noconfirm
+#		popd
+#
+#		sudo rm -rf yay-install
+#	popd
+#fi
 
 echo "Installing AUR packages..."
 yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
