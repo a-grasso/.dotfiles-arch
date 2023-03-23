@@ -55,21 +55,25 @@ sxhkd
 # xautolock
 # "
 
-su root -c "echo \"Installing packages...\" && \
-pacman -Syu --noconfirm && \
-pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
-echo \"Create temporary permissions for sudo...\" && \
-mv -f /etc/sudoers /etc/sudoers.bak && \
-echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
-echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
-echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
-"
+#su root -c "echo \"Installing packages...\" && \
+#pacman -Syu --noconfirm && \
+#pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
+#echo \"Create temporary permissions for sudo...\" && \
+#mv -f /etc/sudoers /etc/sudoers.bak && \
+#echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
+#echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
+#echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
+#"
+#
+#function sudo_finish {
+#	echo "Restore permissions for sudo"
+#	sudo mv -f /etc/sudoers.bak /etc/sudoers
+#}
+#trap sudo_finish EXIT
 
-function sudo_finish {
-	echo "Restore permissions for sudo"
-	sudo mv -f /etc/sudoers.bak /etc/sudoers
-}
-trap sudo_finish EXIT
+sudo pacman -Syu --noconfirm
+
+sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
 
 if ! [ -x "/usr/bin/yay" ]; then
 	echo "Installing yay..."
