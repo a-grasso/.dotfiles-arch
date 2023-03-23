@@ -24,7 +24,7 @@ executable="chezmoi data"
 
 exec sudo --preserve-env=PATH -- \
 #  "${executable}" "$@" \
-  "${executable}" \
+  "${executable}" "" \
   --config='{{ $configFile }}' \
   --persistent-state='{{ $persistentStateFile }}' \
   --cache='{{ $cacheDir }}'
