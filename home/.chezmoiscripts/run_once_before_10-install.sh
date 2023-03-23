@@ -15,10 +15,8 @@ zsh
 
 bitwarden-cli
 xorg
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
-lightdm-slick-greeter
+
+sddm
 
 bspwm
 sxhkd
