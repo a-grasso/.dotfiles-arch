@@ -30,4 +30,5 @@ ssh-add
 ############## lightdm
 
 #sudo -u "$(whoami)" -n bash -c "sudo systemctl enable lightdm"
-sudo systemctl enable lightdm
+#sudo systemctl enable lightdm
+sudo systemctl enable sddm
