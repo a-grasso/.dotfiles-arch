@@ -90,15 +90,15 @@ sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noco
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # ZSH powerlevel10k theme
-ZSH_PL10K_THEME_DIR="/home/$(whoami)/.oh-my-zsh/custom/themes/powerlevel10k"
-if [ -d "$ZSH_PL10K_THEME_DIR" ]; then
-        # Updating
-        echo "Updating zsh powerlevel10k theme..."
-        pushd "$ZSH_PL10K_THEME_DIR"
-              git pull
-        popd
-else
-        # Installing
-        echo "Installing zsh powerlevel10k theme..."
-        git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_PL10K_THEME_DIR"
-fi
+#ZSH_PL10K_THEME_DIR="/home/$(whoami)/.oh-my-zsh/custom/themes/powerlevel10k"
+#if [ -d "$ZSH_PL10K_THEME_DIR" ]; then
+#        # Updating
+#        echo "Updating zsh powerlevel10k theme..."
+#        pushd "$ZSH_PL10K_THEME_DIR"
+#              git pull
+#        popd
+#else
+#        # Installing
+#        echo "Installing zsh powerlevel10k theme..."
+#        git clone https://github.com/romkatv/powerlevel10k.git "$ZSH_PL10K_THEME_DIR"
+#fi
