@@ -78,13 +78,13 @@ sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
 if ! [ -x "/usr/bin/yay" ]; then
 	echo "Installing yay..."
 	pushd /tmp/
-		sudo -u "$(whoami)" mkdir -p "/tmp/yay-install/"
+		sudo mkdir -p "/tmp/yay-install/"
 		pushd yay-install
-			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
-			sudo -u nobody -n makepkg -sicf --needed --noconfirm
+			curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD
+			makepkg -sicf --needed --noconfirm
 		popd
 
-		sudo -u "$(whoami)" -n bash -c "rm -rf yay-install"
+		sudo rm -rf yay-install
 	popd
 fi
 
