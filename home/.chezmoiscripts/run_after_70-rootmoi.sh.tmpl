@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "---ROOTMOI---"
+
 rootmoi_path='{{ joinPath .chezmoi.homeDir ".local/bin/rootmoi" }}'
 original_args=(
   # {{ rest .chezmoi.args | quoteList | join " " }}
