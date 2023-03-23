@@ -79,7 +79,7 @@ pushd /opt/
 git clone https://aur.archlinux.org/yay.git
 sudo chown -R "$(whoami)":users ./yay
 pushd yay
-makepkg -si --needed --noconfirm
+sudo -u nobody -n makepkg -si --needed --noconfirm
 popd
 popd
 
