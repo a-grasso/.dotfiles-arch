@@ -10,7 +10,7 @@ PACKAGES=""
 AURPACKAGES="
 sddm-sugar-candy-git
 sddm-sugar-dark
-sddm-catppucccin-git
+sddm-catppuccin-git
 sddm-theme-abstractdark-git
 "
 
