@@ -9,6 +9,8 @@ echo "---INSTALL---"
 PACKAGES=""
 AURPACKAGES="
 sddm-sugar-candy-git
+sddm-sugar-dark
+sddm-catpucccin-git
 "
 
 PACKAGES+="git
