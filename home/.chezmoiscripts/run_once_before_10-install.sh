@@ -55,49 +55,38 @@ sxhkd
 # xautolock
 # "
 
-#su root -c "echo \"Installing packages...\" && \
-#pacman -Syu --noconfirm && \
-#pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
-#echo \"Create temporary permissions for sudo...\" && \
-#mv -f /etc/sudoers /etc/sudoers.bak && \
-#echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
-#echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
-#echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
-#"
-#
-#function sudo_finish {
-#	echo "Restore permissions for sudo"
-#	sudo mv -f /etc/sudoers.bak /etc/sudoers
-#}
-#trap sudo_finish EXIT
+su root -c "echo \"Installing packages...\" && \
+pacman -Syu --noconfirm && \
+pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
+echo \"Create temporary permissions for sudo...\" && \
+mv -f /etc/sudoers /etc/sudoers.bak && \
+echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
+echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
+echo \"nobody ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
+echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
+"
 
-sudo pacman -Syu --noconfirm
+function sudo_finish {
+	echo "Restore permissions for sudo"
+	sudo mv -f /etc/sudoers.bak /etc/sudoers
+}
+trap sudo_finish EXIT
 
-sudo pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm
+if ! [ -x "/usr/bin/yay" ]; then
+	echo "Installing yay..."
+	pushd /tmp/
+		mkdir -p "/tmp/yay-install/"
+		pushd yay-install
+			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
+			sudo -u "$(whoami)" -n makepkg -sicf --needed --noconfirm
+		popd
 
-pushd /opt/
-git clone https://aur.archlinux.org/yay.git
-sudo chown -R "$(whoami)":users ./yay
-pushd yay
-sudo -u nobody -n makepkg -si --needed --noconfirm
-popd
-popd
-
-#if ! [ -x "/usr/bin/yay" ]; then
-#	echo "Installing yay..."
-#	pushd /tmp/
-#		sudo mkdir -p "/tmp/yay-install/"
-#		pushd yay-install
-#			curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD
-#			sudo -u nobody -n makepkg -sicf --needed --noconfirm
-#		popd
-#
-#		sudo rm -rf yay-install
-#	popd
-#fi
+		sudo rm -rf yay-install
+	popd
+fi
 
 echo "Installing AUR packages..."
-yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm
+sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm 
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
