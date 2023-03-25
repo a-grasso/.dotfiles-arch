@@ -62,8 +62,8 @@ sxhkd
 # "
 
 su root -c "echo \"Installing packages...\" && \
-pacman -Syu --noconfirm > /dev/null && \
-pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm > /dev/null && \
+pacboi_update && \
+pacboi $(echo $PACKAGES | tr -s '\n' ' ') && \
 echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
 echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
