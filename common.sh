@@ -18,14 +18,14 @@ log() {
 #
 # Prints all arguments on the standard output stream
 success() {
-	printf "${green} %s${reset}\n" "${*}"
+	printf "${green}%s${reset}\n" "${*}"
 }
 
 # Usage: error MESSAGE
 #
 # Prints all arguments on the standard error stream
 error() {
-	printf "${red}!!! %s${reset}\n" "${*}" 1>&2
+	printf "${red}%s${reset}\n" "${*}" 1>&2
 }
 
 # Usage: die MESSAGE
@@ -108,7 +108,7 @@ bwUnlock() {
 		fi
 
 		if bw status | grep "unlocked" &>/dev/null; then
-			success "Login successful"
+			success "Bitwarden login successful"
 			break
 		fi
 		error "Login failed, try again..."
