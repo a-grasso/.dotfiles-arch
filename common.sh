@@ -92,6 +92,7 @@ checkDep() {
 #
 # Attempts to login or unlock Bitwarden using the CLI
 bwUnlock() {
+	log "Logging into bitwarden..."
 	# Unlock -> login -> check if already unlocked -> die because unreachable
 	if bw status | grep "locked" &>/dev/null; then
 		export BW_SESSION="$(bw unlock --raw)"
