@@ -1,17 +1,12 @@
 #!/bin/bash
 
 common={{ joinPath .chezmoi.workingTree "/common.sh" }}
-
 source ${common}
 
 gum style \
 	--border double \
 	--align center \
 	"INSTALL"
-
-#sudo pacman -Sy
-#sudo pacman -Sy --noconfirm archlinux-keyring
-#sudo pacman -Syyu --noconfirm
 
 PACKAGES=""
 AURPACKAGES="
@@ -47,10 +42,6 @@ sxhkd
 #
 #dunst
 
-
-
-
-
 # PACKAGES+="
 # networkmanager
 # base-devel
@@ -65,26 +56,22 @@ sxhkd
 # xautolock
 # "
 
-pacboi bspwm
-
-echo "asdasdasdadsasa"
-
-su root -c "echo \"Installing packages...\" && \
-pacman -Syu --noconfirm > /dev/null && \
-pacboi $(echo $PACKAGES | tr -s '\n' ' ') && \
-echo \"Create temporary permissions for sudo...\" && \
+su root -c "echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
 echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
 echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
 echo \"nobody ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
 echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
 "
-
 function sudo_finish {
 	echo "Restore permissions for sudo"
 	sudo mv -f /etc/sudoers.bak /etc/sudoers
 }
 trap sudo_finish EXIT
+
+log "Installing packages..."
+pacboiUpdate
+pacboi $(echo $PACKAGES | tr -s '\n' ' ')
 
 if ! [ -x "/usr/bin/yay" ]; then
 	echo "Installing yay..."
@@ -99,7 +86,7 @@ if ! [ -x "/usr/bin/yay" ]; then
 	popd
 fi
 
-echo "Installing AUR packages..."
+log "Installing AUR packages..."
 sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm > /dev/null
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
