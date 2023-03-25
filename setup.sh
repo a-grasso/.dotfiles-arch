@@ -31,4 +31,4 @@ if [[ ! -d "$HOME/.local/share/chezmoi" ]]; then
 fi
 
 log "Applying dotfiles..."
-chezmoi apply > /dev/null
+chezmoi apply
