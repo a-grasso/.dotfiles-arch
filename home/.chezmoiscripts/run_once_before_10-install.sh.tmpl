@@ -1,6 +1,6 @@
 #!/bin/bash
 
-common={{ joinPath .chezmoi.sourceDir "/common.sh" }}
+common={{ joinPath .chezmoi.workingTree "/common.sh" }}
 
 source ${common}
 
