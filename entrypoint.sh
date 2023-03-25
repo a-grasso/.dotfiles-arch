@@ -20,9 +20,25 @@ if ! command -v git -p &>/dev/null; then
 		sudo pacman -S --noconfirm git > /dev/null
 fi
 
+# gum is needed for further scripting
+if ! command -v gum -p &>/dev/null; then
+		sudo pacman -S --noconfirm gum
+fi
+
+# need a scratch space for downloading files
+tmpDir="$(mktemp -d -t dotfiles-repo-XXXXXXXXXX)"
+if [[ ! -d "${tmpDir}" ]]; then
+	printf "${red}!!! %s${reset}\n" "Failed creating a temporary directory; cannot continue" 1>&2
+	exit 1
+fi
+function cleanup {
+	sudo rm -rf ${tmpDir}
+}
+trap cleanup EXIT
+
 # clone this very repo
-git clone --quiet "${dotfiles}" /tmp/repo > /dev/null
-cd /tmp/repo
+git clone --quiet "${dotfiles}" "${tmpDir}" > /dev/null
+cd "${tmpDir}"
 
 clear
 
