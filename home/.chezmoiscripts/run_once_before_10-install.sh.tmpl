@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source {{- joinPath .chezmoi.sourceDir "/common.sh" -}}
+common={{ joinPath .chezmoi.sourceDir "/common.sh" }}
+
+source ${common}
 
 gum style \
 	--border double \
