@@ -22,7 +22,7 @@ fi
 
 # gum is needed for further scripting
 if ! command -v gum -p &>/dev/null; then
-		sudo pacman -S --noconfirm gum
+		sudo pacman -S --noconfirm gum  > /dev/null
 fi
 
 # need a scratch space for downloading files
