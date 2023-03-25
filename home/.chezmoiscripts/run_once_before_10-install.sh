@@ -62,7 +62,7 @@ sxhkd
 # "
 
 su root -c "echo \"Installing packages...\" && \
-pacboi_update && \
+pacboiUpdate && \
 pacboi $(echo $PACKAGES | tr -s '\n' ' ') && \
 echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
