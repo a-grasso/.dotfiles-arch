@@ -30,11 +30,7 @@ checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
 # bitwarden-cli is needed to pull down secrets with chezmoi
 checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
 
-if yesnoreturn "Do you want to unlock bitwarden for chezmoi NOW?"; then
-	# needs to be unlocked before calling chezmoi
-	log "Logging into bitwarden..."
-	bwUnlock
-fi
+gum confirm "Do you want to unlock bitwarden for chezmoi NOW?" && bwUnlock
 
 if [[ ! -d "$HOME/.local/share/chezmoi" ]]; then
 	log "Fetching dotfiles..."
