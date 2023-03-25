@@ -93,8 +93,7 @@ checkDep() {
 # Attempts to login or unlock Bitwarden using the CLI
 bwUnlock() {
 	loop=0
-	while [ ${loop} ]
-	do
+	while true ; do
 		# Unlock -> login -> check if already unlocked -> die because unreachable
 		if bw status | grep "locked" &>/dev/null; then
 			pwd=$(gum input --password --placeholder "master password (masked)")
@@ -108,9 +107,9 @@ bwUnlock() {
 		fi
 
 		if bw status | grep "unlocked" &>/dev/null; then
-			loop=1
+			break
 		fi
-			log "Login failed, try again..."
+		log "Login failed, try again..."
 	done
 	
 	bw sync
