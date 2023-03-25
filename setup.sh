@@ -11,13 +11,6 @@ gum style \
 	--align center \
 	"SETUP"
 
-
-# need a scratch space for downloading files
-#tmpDir="$(mktemp -d -t dev-setup-XXXXXXXXXX)"
-#if [[ ! -d "${tmpDir}" ]]; then
-#	die "Failed creating a temporary directory; cannot continue"
-#fi
-
 # sudo is needed for dotfiles
 checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
 
