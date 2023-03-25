@@ -69,7 +69,7 @@ tryInstall() {
 	#yesno "Would you like to install it?"
 
 	log "Installing ${name}..."
-	${executable}
+	${executable} > /dev/null
 	success "${name} was successfully installed"
 }
 
