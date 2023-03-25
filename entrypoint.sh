@@ -11,6 +11,7 @@ if ! command -v sudo -p &>/dev/null; then
 		pacman -Sy --noconfirm sudo &> /dev/null
 fi
 
+# install prerequisite packages
 sudo pacman -Sy --noconfirm --needed sudo git gum &> /dev/null
 
 gum style \
