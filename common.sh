@@ -62,7 +62,7 @@ pacboi() {
 	sudo pacman -Sy --noconfirm --needed ${*} > /dev/null
 }
 
-pacboi_update() {
+pacboiUpdate() {
 	pacman -Syu --noconfirm > /dev/null
 }
 
