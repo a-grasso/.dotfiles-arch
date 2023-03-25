@@ -28,11 +28,11 @@ fi
 # need a scratch space for downloading files
 tmpDir="$(mktemp -d -t dotfiles-repo-XXXXXXXXXX)"
 if [[ ! -d "${tmpDir}" ]]; then
-	echo "Cleaning up entrypoint"
 	printf "${red}!!! %s${reset}\n" "Failed creating a temporary directory; cannot continue" 1>&2
 	exit 1
 fi
 function cleanup {
+	echo "Cleaning up entrypoint"
 	sudo rm -rf ${tmpDir}
 }
 trap cleanup EXIT
