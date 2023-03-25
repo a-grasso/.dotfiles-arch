@@ -15,16 +15,16 @@ source ./common.sh
 #fi
 
 # sudo is needed for dotfiles
-checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
+checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo > /dev/null'
 
 # git is needed for dotfiles
-checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
+checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git > /dev/null'
 
 # chezmoi is needed for dotfiles
-checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
+checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi > /dev/null'
 
 # bitwarden-cli is needed to pull down secrets with chezmoi
-checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
+checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli > /dev/null'
 
 if yesnoreturn "Do you want to unlock bitwarden for chezmoi NOW?"; then
 	# needs to be unlocked before calling chezmoi
