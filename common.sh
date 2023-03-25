@@ -59,7 +59,11 @@ yesnoreturn() {
 }
 
 pacboi() {
-	sudo pacman -Sy --noconfirm --needed ${*} &> /dev/null
+	sudo pacman -Sy --noconfirm --needed ${*} > /dev/null
+}
+
+pacboi_update() {
+	pacman -Syu --noconfirm > /dev/null
 }
 
 # Usage: tryInstall NAME EXECUTABLE
