@@ -12,16 +12,16 @@ gum style \
 	"SETUP"
 
 # sudo is needed for dotfiles
-checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
+checkDep 'sudo' 'command -v sudo' 'pacboi sudo'
 
 # git is needed for dotfiles
-checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
+checkDep 'git' 'command -v git' 'pacboi git'
 
 # chezmoi is needed for dotfiles
 checkDep 'chezmoi' 'command -v chezmoi' 'pacboi chezmoi'
 
 # bitwarden-cli is needed to pull down secrets with chezmoi
-checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
+checkDep 'bitwarden-cli' 'command -v bw' 'pacboi bitwarden-cli'
 
 gum confirm "Do you want to unlock bitwarden for chezmoi NOW?" && bwUnlock
 
