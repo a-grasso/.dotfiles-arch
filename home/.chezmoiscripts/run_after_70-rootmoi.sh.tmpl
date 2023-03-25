@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "---ROOTMOI---"
+
+gum style \
+	--border double \
+	--align center \
+	"ROOTMOI"
 
 rootmoi_path='{{ joinPath .chezmoi.homeDir ".local/bin/rootmoi" }}'
 original_args=(
