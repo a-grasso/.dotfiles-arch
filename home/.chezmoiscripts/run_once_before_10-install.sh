@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "./../../common.sh
+
 gum style \
 	--border double \
 	--align center \
