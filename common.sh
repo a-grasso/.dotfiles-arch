@@ -95,11 +95,11 @@ bwUnlock() {
 	log "Logging into bitwarden..."
 	# Unlock -> login -> check if already unlocked -> die because unreachable
 	if bw status | grep "locked" &>/dev/null; then
-		pwd=$(gum input --password --placeholder "master password")
+		pwd=$(gum input --password --placeholder "master password (masked)")
 		export BW_SESSION="$(bw unlock --raw ${pwd})"
 	elif bw status | grep "unauthenticated" &>/dev/null; then
 		email=$(gum input --placeholder "email")
-		pwd=$(gum input --password --placeholder "master password")
+		pwd=$(gum input --password --placeholder "master password (masked)")
 		export BW_SESSION="$(bw login --raw ${email} ${pwd})"
 	elif [[ -z "${BW_SESSION}" ]]; then
 		die "Unknown bitwarden status"
