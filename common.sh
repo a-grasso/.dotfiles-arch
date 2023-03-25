@@ -92,22 +92,26 @@ checkDep() {
 #
 # Attempts to login or unlock Bitwarden using the CLI
 bwUnlock() {
-	# Unlock -> login -> check if already unlocked -> die because unreachable
-	if bw status | grep "locked" &>/dev/null; then
-		pwd=$(gum input --password --placeholder "master password (masked)")
-		export BW_SESSION="$(bw unlock --raw ${pwd})"
-	elif bw status | grep "unauthenticated" &>/dev/null; then
-		email=$(gum input --placeholder "email")
-		pwd=$(gum input --password --placeholder "master password (masked)")
-		export BW_SESSION="$(bw login --raw ${email} ${pwd})"
-	elif [[ -z "${BW_SESSION}" ]]; then
-		die "Unknown bitwarden status"
-	fi
-	
-	if ! bw status | grep "unlocked" &>/dev/null; then
-		log "Login failed, try again..."
-		bwUnlock
-	fi
+	loop=0
+	while [ ${loop} ]
+	do
+		# Unlock -> login -> check if already unlocked -> die because unreachable
+		if bw status | grep "locked" &>/dev/null; then
+			pwd=$(gum input --password --placeholder "master password (masked)")
+			export BW_SESSION="$(bw unlock --raw ${pwd})"
+		elif bw status | grep "unauthenticated" &>/dev/null; then
+			email=$(gum input --placeholder "email")
+			pwd=$(gum input --password --placeholder "master password (masked)")
+			export BW_SESSION="$(bw login --raw ${email} ${pwd})"
+		elif [[ -z "${BW_SESSION}" ]]; then
+			die "Unknown bitwarden status"
+		fi
+
+		if bw status | grep "unlocked" &>/dev/null; then
+			loop=1
+		fi
+			log "Login failed, try again..."
+	done
 	
 	bw sync
 }
