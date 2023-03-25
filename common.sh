@@ -108,7 +108,7 @@ bwUnlock() {
 		fi
 
 		if bw status | grep "unlocked" &>/dev/null; then
-			log "Login succesfull"
+			log "Login successful"
 			break
 		fi
 		log "Login failed, try again..."
