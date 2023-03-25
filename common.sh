@@ -58,6 +58,10 @@ yesnoreturn() {
 	return 1
 }
 
+pacboi() {
+	sudo pacman -Sy --noconfirm --needed ${*}
+}
+
 # Usage: tryInstall NAME EXECUTABLE
 #
 # Asks the user permission to install NAME and then runs EXECUTABLE
