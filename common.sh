@@ -63,7 +63,7 @@ pacboi() {
 }
 
 pacboiUpdate() {
-	pacman -Syu --noconfirm > /dev/null
+	sudo pacman -Syu --noconfirm > /dev/null
 }
 
 # Usage: tryInstall NAME EXECUTABLE
