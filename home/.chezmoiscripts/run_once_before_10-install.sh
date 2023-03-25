@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "---INSTALL---"
+
+gum style \
+	--border double \
+	--align center \
+	"INSTALL"
 
 #sudo pacman -Sy
 #sudo pacman -Sy --noconfirm archlinux-keyring
