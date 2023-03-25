@@ -65,7 +65,7 @@ tryInstall() {
 	local name=${1}
 	local executable=${2}
 
-	log "It appears that ${name} is not installed and is required to continue."
+	#log "It appears that ${name} is not installed and is required to continue."
 	#yesno "Would you like to install it?"
 
 	log "Installing ${name}..."
