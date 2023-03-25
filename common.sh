@@ -100,7 +100,7 @@ bwUnlock() {
 	elif bw status | grep "unauthenticated" &>/dev/null; then
 		email=$(gum input --placeholder "email")
 		pwd=$(gum input --password --placeholder "master password")
-		export BW_SESSION="$(bw login --raw email pwd)"
+		export BW_SESSION="$(bw login --raw ${email} ${pwd})"
 	elif [[ -z "${BW_SESSION}" ]]; then
 		die "Unknown bitwarden status"
 	fi
