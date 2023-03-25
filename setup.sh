@@ -27,7 +27,7 @@ gum confirm "Do you want to unlock bitwarden for chezmoi NOW?" && bwUnlock
 
 if [[ ! -d "$HOME/.local/share/chezmoi" ]]; then
 	log "Fetching dotfiles..."
-	chezmoi init "${dotfiles}" > /dev/null
+	gum spin -s line chezmoi init "${dotfiles}" > /dev/null
 fi
 
 log "Applying dotfiles..."
