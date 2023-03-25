@@ -18,7 +18,7 @@ checkDep 'sudo' 'command -v sudo' 'pacman -S --noconfirm sudo'
 checkDep 'git' 'command -v git' 'sudo pacman -S --noconfirm git'
 
 # chezmoi is needed for dotfiles
-checkDep 'chezmoi' 'command -v chezmoi' 'sudo pacman -S --noconfirm chezmoi'
+checkDep 'chezmoi' 'command -v chezmoi' 'pacboi chezmoi'
 
 # bitwarden-cli is needed to pull down secrets with chezmoi
 checkDep 'bitwarden-cli' 'command -v bw' 'sudo pacman -S --noconfirm bitwarden-cli'
