@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo "---CLOSEDOWN---"
+
+gum style \
+	--border double \
+	--align center \
+	"CLOSEDOWN"
 
 #su root -c "echo \"Create temporary permissions for sudo...\" && \
 #mv -f /etc/sudoers /etc/sudoers.bak && \
