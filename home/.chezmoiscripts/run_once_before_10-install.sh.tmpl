@@ -65,6 +65,8 @@ sxhkd
 # xautolock
 # "
 
+pacboi bspwm
+
 su root -c "echo \"Installing packages...\" && \
 pacman -Syu --noconfirm > /dev/null && \
 pacboi $(echo $PACKAGES | tr -s '\n' ' ') && \
