@@ -92,7 +92,8 @@ checkDep() {
 #
 # Attempts to login or unlock Bitwarden using the CLI
 bwUnlock() {
-	loop=0
+	log "Logging into Bitwarden..."
+	
 	while true ; do
 		# Unlock -> login -> check if already unlocked -> die because unreachable
 		if bw status | grep "locked" &>/dev/null; then
@@ -107,6 +108,7 @@ bwUnlock() {
 		fi
 
 		if bw status | grep "unlocked" &>/dev/null; then
+			log "Login succesfull"
 			break
 		fi
 		log "Login failed, try again..."
