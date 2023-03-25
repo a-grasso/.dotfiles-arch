@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo "---PRECHECKS---"
+gum style \
+	--border double \
+	--align center \
+	"PRECHECK"
 
 if bw status | grep "unlocked" &>/dev/null; then
   echo "Bitwarden Vault is UNLOCKED!"
