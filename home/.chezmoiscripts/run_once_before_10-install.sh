@@ -59,8 +59,8 @@ sxhkd
 # "
 
 su root -c "echo \"Installing packages...\" && \
-pacman -Syu --noconfirm && \
-pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm && \
+pacman -Syu --noconfirm > /dev/null && \
+pacman -Sy $(echo $PACKAGES | tr -s '\n' ' ') --needed --noconfirm > /dev/null && \
 echo \"Create temporary permissions for sudo...\" && \
 mv -f /etc/sudoers /etc/sudoers.bak && \
 echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
@@ -89,7 +89,7 @@ if ! [ -x "/usr/bin/yay" ]; then
 fi
 
 echo "Installing AUR packages..."
-sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm 
+sudo -u "$(whoami)" yay -S $(echo $AURPACKAGES | tr -s '\n' ' ') --needed --noconfirm > /dev/null
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
