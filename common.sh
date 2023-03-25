@@ -126,7 +126,7 @@ bwUnlock() {
 }
 
 alterSudo() {
-	su root -c "log \"Creating temporary permissions for sudo...\" && \
+	su root -c "echo \"Creating temporary permissions for sudo...\" && \
 	mv -f /etc/sudoers /etc/sudoers.bak && \
 	echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
 	echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
