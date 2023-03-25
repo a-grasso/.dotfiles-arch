@@ -34,8 +34,8 @@ fi
 
 if [[ ! -d "$HOME/.local/share/chezmoi" ]]; then
 	log "Fetching dotfiles..."
-	chezmoi init "${dotfiles}"
+	chezmoi init "${dotfiles}" > /dev/null
 fi
 
 log "Applying dotfiles..."
-chezmoi apply
+chezmoi apply > /dev/null
