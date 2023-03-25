@@ -67,7 +67,7 @@ if ! [ -x "/usr/bin/yay" ]; then
 	pushd /tmp/
 		mkdir -p "/tmp/yay-install/"
 		pushd yay-install
-			sudo -u "$(whoami)" -n bash -c "curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
+			sudo -u "$(whoami)" -n bash -c "curl -fsSL https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay > PKGBUILD"
 			sudo -u "$(whoami)" -n makepkg -sicf --needed --noconfirm
 		popd
 
