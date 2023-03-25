@@ -41,8 +41,6 @@ trap cleanup EXIT
 git clone --quiet "${dotfiles}" "${tmpDir}" > /dev/null
 cd "${tmpDir}"
 
-clear
-
 # setup everything
 sudo chmod +x setup.sh
 ./setup.sh
