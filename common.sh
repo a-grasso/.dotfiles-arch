@@ -92,7 +92,6 @@ checkDep() {
 #
 # Attempts to login or unlock Bitwarden using the CLI
 bwUnlock() {
-	log "Logging into bitwarden..."
 	# Unlock -> login -> check if already unlocked -> die because unreachable
 	if bw status | grep "locked" &>/dev/null; then
 		pwd=$(gum input --password --placeholder "master password (masked)")
@@ -106,6 +105,7 @@ bwUnlock() {
 	fi
 	
 	if ! bw status | grep "unlocked" &>/dev/null; then
+		log "Login failed, try again..."
 		bwUnlock
 	fi
 	
