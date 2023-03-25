@@ -104,5 +104,10 @@ bwUnlock() {
 	elif [[ -z "${BW_SESSION}" ]]; then
 		die "Unknown bitwarden status"
 	fi
+	
+	if ! bw status | grep "unlocked" &>/dev/null; then
+		bwUnlock
+	fi
+	
 	bw sync
 }
