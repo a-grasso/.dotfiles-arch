@@ -6,7 +6,7 @@ set -o pipefail # don't hide errors within pipes
 
 readonly dotfiles='https://github.com/a-grasso/.dotfiles-arch'
 
-# sudo is needed for dotfiles
+# make sure sudo exists
 if ! command -v sudo -p &>/dev/null; then
 		pacman -Sy --noconfirm sudo &> /dev/null
 fi
