@@ -124,3 +124,20 @@ bwUnlock() {
 	
 	bw sync
 }
+
+alterSudo() {
+	su root -c "log \"Creating temporary permissions for sudo...\" && \
+	mv -f /etc/sudoers /etc/sudoers.bak && \
+	echo \"root ALL=(ALL) ALL\" > /etc/sudoers && \
+	echo \"$(whoami) ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
+	echo \"nobody ALL = NOPASSWD : ALL\" >> /etc/sudoers && \
+	echo \"%wheel ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers
+	"
+	
+	trap sudo_restore EXIT
+}
+
+function sudo_restore {
+	log "Permissions for sudo restored"
+	sudo mv -f /etc/sudoers.bak /etc/sudoers
+}
