@@ -108,10 +108,10 @@ bwUnlock() {
 		fi
 
 		if bw status | grep "unlocked" &>/dev/null; then
-			log "Login successful"
+			success "Login successful"
 			break
 		fi
-		log "Login failed, try again..."
+		error "Login failed, try again..."
 	done
 	
 	bw sync
