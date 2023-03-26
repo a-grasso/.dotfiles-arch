@@ -13,6 +13,12 @@
   url: "https://github.com/romkatv/powerlevel10k/archive/{{ template "get-github-head-revision" list "romkatv/powerlevel10k" $cache }}.tar.gz"
   stripComponents: 1
   exact: true
+  
+".fzf":
+  type: archive
+  url: "https://github.com/junegunn/fzf/archive/{{ template "get-github-head-revision" list "junegunn/fzf" $cache }}.tar.gz"
+  stripComponents: 1
+  exact: true
 
 ".local/bin/fzf":
   type: file
