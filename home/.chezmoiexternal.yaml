@@ -13,3 +13,11 @@
   type: archive
   url: "https://github.com/ohmyzsh/ohmyzsh/archive/{{ template "get-github-head-revision" list "ohmyzsh/ohmyzsh" $cache }}.tar.gz"
   stripComponents: 1
+
+".local/bin/fzf":
+  type: file
+  url: "https://github.com/junegunn/fzf/releases/download/{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}/fzf-{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}-linux_{{ .chezmoi.arch }}.tar.gz"
+  filter:
+    command: tar
+    args: ["-x", "-z", "-O", "fzf"]
+  executable: true
