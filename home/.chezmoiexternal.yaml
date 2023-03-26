@@ -14,11 +14,11 @@
   stripComponents: 1
   exact: true
   
-#".fzf":
-#  type: archive
-#  url: "https://github.com/junegunn/fzf/archive/{{ template "get-github-head-revision" list "junegunn/fzf" $cache }}.tar.gz"
-#  stripComponents: 1
-#  exact: true
+".fzf":
+  type: archive
+  url: "https://github.com/junegunn/fzf/archive/{{ template "get-github-head-revision" list "junegunn/fzf" $cache }}.tar.gz"
+  stripComponents: 1
+  exact: true
 
 ".fzf/bin/fzf":
   type: file
