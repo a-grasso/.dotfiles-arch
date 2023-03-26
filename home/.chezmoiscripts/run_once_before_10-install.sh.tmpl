@@ -64,7 +64,7 @@ pacboiUpdate
 pacboi $(echo $PACKAGES | tr -s '\n' ' ')
 
 if ! [ -x "/usr/bin/yay" ]; then
-	echo "Installing yay..."
+	log "Installing yay..."
 	pushd /tmp/
 		mkdir -p "/tmp/yay-install/"
 		pushd yay-install
