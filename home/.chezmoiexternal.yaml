@@ -20,6 +20,14 @@
   stripComponents: 1
   exact: true
 
+".fzf/bin/fzf":
+  type: file
+  url: "https://github.com/junegunn/fzf/releases/download/{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}/fzf-{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}-linux_{{ .chezmoi.arch }}.tar.gz"
+  filter:
+    command: tar
+    args: ["-x", "-z", "-O", "fzf"]
+  executable: true
+
 ".local/bin/fzf":
   type: file
   url: "https://github.com/junegunn/fzf/releases/download/{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}/fzf-{{ template "get-github-latest-version" list "junegunn/fzf" $cache }}-linux_{{ .chezmoi.arch }}.tar.gz"
