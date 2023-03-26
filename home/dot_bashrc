@@ -289,3 +289,5 @@ neofetch
 #hfetch
 # install lolcat
 #sfetch | lolcat
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
