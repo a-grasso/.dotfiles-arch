@@ -59,3 +59,9 @@
   url: "https://github.com/marlonrichert/zsh-autocomplete/archive/{{ template "get-github-head-revision" list "marlonrichert/zsh-autocomplete" $cache }}.tar.gz"
   stripComponents: 1
   exact: true
+
+".oh-my-zsh/custom/plugins/fzf-zsh-plugin":
+  type: archive
+  url: "https://github.com/unixorn/fzf-zsh-plugin/archive/{{ template "get-github-head-revision" list "unixorn/fzf-zsh-plugin" $cache }}.tar.gz"
+  stripComponents: 1
+  exact: true
