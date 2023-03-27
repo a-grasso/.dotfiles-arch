@@ -53,3 +53,9 @@
   url: "https://github.com/zsh-users/zsh-completions/archive/{{ template "get-github-head-revision" list "zsh-users/zsh-completions" $cache }}.tar.gz"
   stripComponents: 1
   exact: true
+
+".oh-my-zsh/custom/plugins/zsh-autocomplete":
+  type: archive
+  url: "https://github.com/marlonrichert/zsh-autocomplete/archive/{{ template "get-github-head-revision" list "marlonrichert/zsh-autocomplete" $cache }}.tar.gz"
+  stripComponents: 1
+  exact: true
