@@ -1,0 +1,5 @@
+fontsDir: .local/share/fonts
+
+terminalFont:
+  fileName: Caskaydia Cove Regular Nerd Font Complete Mono.otf
+  name: Caskaydia Cove Nerd Font Mono
