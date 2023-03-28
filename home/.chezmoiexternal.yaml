@@ -65,3 +65,10 @@
   url: "https://github.com/unixorn/fzf-zsh-plugin/archive/{{ template "get-github-head-revision" list "unixorn/fzf-zsh-plugin" $cache }}.tar.gz"
   stripComponents: 1
   exact: true
+  
+  v2.3.3/CascadiaCode.zip
+
+"{{ joinPath .fontsDir .terminalFont.fileName }}":
+  type: file
+  url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ template "get-github-head-revision" list "ryanoasis/nerd-fonts" $cache }}/patched-fonts/CascadiaCode/Regular/complete/{{ .terminalFont.fileName | replace " " "%20" }}"
+  
