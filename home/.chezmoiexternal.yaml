@@ -65,8 +65,6 @@
   url: "https://github.com/unixorn/fzf-zsh-plugin/archive/{{ template "get-github-head-revision" list "unixorn/fzf-zsh-plugin" $cache }}.tar.gz"
   stripComponents: 1
   exact: true
-  
-  v2.3.3/CascadiaCode.zip
 
 "{{ joinPath .fontsDir .terminalFont.fileName }}":
   type: file
