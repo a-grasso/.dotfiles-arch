@@ -5,7 +5,6 @@ function run {
   fi
 }
 
-
 $HOME/.config/polybar/launch.sh &
 
 setxkbmap &
