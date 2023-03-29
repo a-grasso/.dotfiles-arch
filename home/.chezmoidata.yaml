@@ -1,6 +1,9 @@
 fontsDir: .local/share/fonts
 
 terminalFont:
-  fileName: Caskaydia Cove Nerd Font Complete Mono Regular.otf
+  fileName: 
+    regular: Caskaydia Cove Nerd Font Complete Mono Regular.otf
+    bold: Caskaydia Cove Nerd Font Complete Mono Bold.otf
+    light: Caskaydia Cove Nerd Font Complete Mono Light.otf
   name: Caskaydia Cove Nerd Font Mono
   family: Caskaydia Cove
