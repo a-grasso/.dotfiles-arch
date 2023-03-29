@@ -66,7 +66,15 @@
   stripComponents: 1
   exact: true
 
-"{{ joinPath .fontsDir .terminalFont.family .terminalFont.fileName }}":
+"{{ joinPath .fontsDir .terminalFont.family .terminalFont.fileName.regular }}":
   type: file
-  url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ template "get-github-head-revision" list "ryanoasis/nerd-fonts" $cache }}/patched-fonts/CascadiaCode/Regular/complete/{{ .terminalFont.fileName | replace " " "%20" }}"
+  url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ template "get-github-head-revision" list "ryanoasis/nerd-fonts" $cache }}/patched-fonts/CascadiaCode/Regular/complete/{{ .terminalFont.fileName.regular | replace " " "%20" }}"
+  
+"{{ joinPath .fontsDir .terminalFont.family .terminalFont.fileName.bold }}":
+  type: file
+  url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ template "get-github-head-revision" list "ryanoasis/nerd-fonts" $cache }}/patched-fonts/CascadiaCode/Bold/complete/{{ .terminalFont.fileName.bold | replace " " "%20" }}"
+  
+"{{ joinPath .fontsDir .terminalFont.family .terminalFont.fileName.light }}":
+  type: file
+  url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ template "get-github-head-revision" list "ryanoasis/nerd-fonts" $cache }}/patched-fonts/CascadiaCode/Light/complete/{{ .terminalFont.fileName.light | replace " " "%20" }}"
   
