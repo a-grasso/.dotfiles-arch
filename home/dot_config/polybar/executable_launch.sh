@@ -8,7 +8,7 @@ polybar-msg cmd quit
 
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar --config=$HOME/.config/polybar/config.ini bar1 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar --config=$HOME/.config/polybar/config.ini main 2>&1 | tee -a /tmp/polybarMain.log & disown
 #polybar bar2 2>&1 | tee -a /tmp/polybar2.log & disown
 
 echo "Bars launched..."
