@@ -5,14 +5,13 @@ function run {
   fi
 }
 
-$HOME/.config/polybar/launch.sh &
-
 setxkbmap &
 keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
 
 run sxhkd -c ~/.config/sxhkd/sxhkdrc &
 
-nitrogen --restore
-picom
+nitrogen --restore &
+picom &
 
+$HOME/.config/polybar/launch.sh &
 
